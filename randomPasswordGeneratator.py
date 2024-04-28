@@ -54,21 +54,16 @@ elif int(value) < 0:
     exit()
 
 max = int(value)
-repeat = input("Do you want repeat a term (Y/n)? ")
+repeat = input("Do you want to repeat a term? (Y/n) (default=n): ")
 
-def sec(length , enter):
-    if length <= 3 and enter != "":
-        print("Password is Weak")
-    elif length > 3 and length < 5 and enter != "":
-        print("Password is Good")
-    elif length == 5 or length < 10 and enter != "":
-        print("Password is Strong")
-    elif length >= 10 and enter != "":
-        print("Password is Very Strong") 
-    elif enter == "":
-        pass
+# Error Handling: Setting repeat to default="n"
+if repeat == "":
+    repeat = "n"
+    print("Default set to n.")
+elif repeat not in ['Y', 'n']:
+    print("Please enter a valid option.")
 
-sec(max, phrase)
+SLmethod.sec(max, phrase)
 
 L_password = [] # Empty list which will store new generated password in the form of list
 
