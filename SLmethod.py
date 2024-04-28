@@ -134,3 +134,15 @@ def pass_creator2(length, argument, L_list, list1, list2, list3, list4):
             length-=1 # reduce value of length by 1
     else:
         print("You entered password length less than 1 !") 
+
+def sec(length , enter):
+    if length <= 3 and enter != "":
+        print("Password is Weak")
+    elif length > 3 and length < 5 and enter != "":
+        print("Password is Good")
+    elif length == 5 or length < 10 and enter != "":
+        print("Password is Strong")
+    elif length >= 10 and enter != "":
+        print("Password is Very Strong") 
+    elif enter == "":
+        pass
