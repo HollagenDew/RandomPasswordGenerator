@@ -1,0 +1,11 @@
+pass_creator(length, argument, L_list, list1, list2, list3, list4)
+
+Here,
+length = It is the length of password.
+argument = Here we pass the terms we want in our password. For ex:- A-Z a-z special.
+L_list = It stores the list which is created from this function.
+list1 to list4 = This are the list which are used to generate password.
+
+For Ex:-
+    pass_creator(max, argument="A-Z a-z 0-9", L_list=L_password,list1=U_alphabet,list2=l_alphabet,list3=numeric,list4=special_char)
+    
