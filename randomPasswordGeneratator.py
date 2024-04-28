@@ -63,36 +63,43 @@ if repeat == "":
 elif repeat not in ['Y', 'n']:
     print("Please enter a valid option.")
 
+    
 SLmethod.sec(max, phrase)
 
 L_password = [] # Empty list which will store new generated password in the form of list
 
 if repeat == "Y":
     SLmethod.pass_creator2(max, argument=phrase, L_list=L_password,list1=U_alphabet,list2=l_alphabet,list3=numeric,list4=special_char)
-    rm_list = int(len(L_password)/3) # Used  because the length of L_password is getting doubled i.e (length*3)
-    counter = rm_list 
+    rm_list = int(len(L_password) / 3)
+    counter = rm_list
 
-    while len(L_password) != rm_list: # Continue removing elements from L_password until it's length is equal to rm_list
-        L_password.pop(counter) # removes Extra elements from list
+    while len(L_password) != rm_list:
+        L_password.pop(counter - 1)  # Corrected pop operation
         counter -= 1
 
-    # It is used to convert [['R'], ['e'], [']'], ['P'], ['m'], ['<']] --> ['R', 'e', ']', 'P', 'm', '<']
-    # l_password = sum(L_password, [])
-    password = ''.join(L_password) # Here list is converted to string i.e ['R', 'e', ']', 'P', 'm', '<'] --> "Re]Pm<"
+    # Flatten the list if needed
+    # L_password = sum(L_password, [])
+
+    password = ''.join(L_password)
     print(password)
+
+
 elif repeat == "n":
     SLmethod.pass_creator(max, argument=phrase, L_list=L_password,list1=U_alphabet,list2=l_alphabet,list3=numeric,list4=special_char) 
+    rm_list = int(len(L_password) / 3)
+    counter = rm_list
 
-    rm_list = int(len(L_password)/3) # Used  because the length of L_password is getting doubled i.e (length*3)
-    counter = rm_list 
-    
-    while len(L_password) != rm_list: # Continue removing elements from L_password until it's length is equal to rm_list
-        L_password.pop(counter) # removes Extra elements from list
+    while len(L_password) != rm_list:
+        L_password.pop(counter - 1)  # Corrected pop operation
         counter -= 1
+        
+
+    # Flatten the list if needed
+    # L_password = sum(L_password, [])
 
     # It is used to convert [['R'], ['e'], [']'], ['P'], ['m'], ['<']] --> ['R', 'e', ']', 'P', 'm', '<']
-    l_password = sum(L_password, [])
-    password = ''.join(l_password) # Here list is converted to string i.e ['R', 'e', ']', 'P', 'm', '<'] --> "Re]Pm<"
+    L_password = sum(L_password, [])
+    password = ''.join(L_password) # Here list is converted to string i.e ['R', 'e', ']', 'P', 'm', '<'] --> "Re]Pm<"
     print(password)
 
 # # It is used to convert [['R'], ['e'], [']'], ['P'], ['m'], ['<']] --> ['R', 'e', ']', 'P', 'm', '<']
